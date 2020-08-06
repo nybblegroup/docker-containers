@@ -1,0 +1,8 @@
+version: "3"
+services:
+  filesync:
+    build: .
+    volumes:
+      - ./efs:/mnt/efs
+    env_file:
+      - ./config/test-filesync.env
