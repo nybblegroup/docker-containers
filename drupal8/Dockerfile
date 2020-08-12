@@ -21,3 +21,13 @@ RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/latest/downloa
 
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /var/www/html
+
+ADD start.sh start.sh
+RUN chmod +x start.sh
+
+EXPOSE 22
+EXPOSE 80
+
+CMD ["/bin/sh", "start.sh"]
